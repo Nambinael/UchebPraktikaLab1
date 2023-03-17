@@ -22,12 +22,27 @@ namespace Uchebka
     public partial class Page2 : Page
     {
         ChelovekTableAdapter chelovek = new ChelovekTableAdapter();
+        FavDrinkTableAdapter drinks = new FavDrinkTableAdapter();
+        AgeGroupTableAdapter age = new AgeGroupTableAdapter();
         public Page2()
         {
             InitializeComponent();
+            
             FirstTable.ItemsSource = chelovek.GetData();
+            FavDrinkIdBox.ItemsSource = drinks.GetData();
+            AgeGroupIdBox.ItemsSource = age.GetData();
+            FavDrinkIdBox.DisplayMemberPath = "NameOfDrink";
+            FavDrinkIdBox.SelectedValuePath = "Id";
+            AgeGroupIdBox.DisplayMemberPath = "NameOfAgeGroup";
+            AgeGroupIdBox.SelectedValuePath = "Id";
         }
 
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            int id = (int)FavDrinkIdBox.SelectedValue;
+            int id1 = (int)AgeGroupIdBox.SelectedValue;
+            chelovek.InsertQuery(NaaameBox.Text, id, id1);
+            FirstTable.ItemsSource = chelovek.GetData();
+        }
     }
 }

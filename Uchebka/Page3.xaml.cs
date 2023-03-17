@@ -27,5 +27,11 @@ namespace Uchebka
             InitializeComponent();
             SecondTable.ItemsSource = drinks.GetData();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            drinks.InsertQuery(DrinkNameBox.Text);
+            SecondTable.ItemsSource = drinks.GetData();
+        }
     }
 }

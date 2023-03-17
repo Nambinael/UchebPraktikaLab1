@@ -27,5 +27,11 @@ namespace Uchebka
             InitializeComponent();
             ThirdTable.ItemsSource = age.GetData();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            age.InsertQuery(AgeGroupBox.Text);
+            ThirdTable.ItemsSource = age.GetData();
+        }
     }
 }
