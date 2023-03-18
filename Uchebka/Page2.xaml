@@ -17,5 +17,6 @@
         <TextBlock Text="Id Возраста" HorizontalAlignment="Center"/>
         <ComboBox x:Name="AgeGroupIdBox" HorizontalAlignment="Center"/>
         <Button Content="Соранить запись" Click="Button_Click"/>
+        <Button Content="Удалить запись" Click="Button_Click_1"/>
     </StackPanel>
 </Page>

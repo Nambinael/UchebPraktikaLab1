@@ -13,5 +13,6 @@
         <TextBlock Text="Возрастная группа" HorizontalAlignment="Center"/>
         <TextBox  x:Name="AgeGroupBox" HorizontalAlignment="Center"/>
         <Button Content="Сохранить запись" Click="Button_Click" />
+        <Button Content="Удалить запись" Click="Button_Click_1"/>
     </StackPanel>
 </Page>

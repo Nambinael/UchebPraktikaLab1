@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,13 @@ namespace Uchebka
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             age.InsertQuery(AgeGroupBox.Text);
+            ThirdTable.ItemsSource = age.GetData();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            int id = (int)(ThirdTable.SelectedValue as DataRowView).Row[0];
+            age.DeleteQuery(id);
             ThirdTable.ItemsSource = age.GetData();
         }
     }

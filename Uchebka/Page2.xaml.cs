@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +43,13 @@ namespace Uchebka
             int id = (int)FavDrinkIdBox.SelectedValue;
             int id1 = (int)AgeGroupIdBox.SelectedValue;
             chelovek.InsertQuery(NaaameBox.Text, id, id1);
+            FirstTable.ItemsSource = chelovek.GetData();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            int id = (int)(FirstTable.SelectedValue as DataRowView).Row[0];
+            chelovek.DeleteQuery(id);
             FirstTable.ItemsSource = chelovek.GetData();
         }
     }

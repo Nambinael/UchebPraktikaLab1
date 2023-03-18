@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,13 @@ namespace Uchebka
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             drinks.InsertQuery(DrinkNameBox.Text);
+            SecondTable.ItemsSource = drinks.GetData();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            int id = (int)(SecondTable.SelectedValue as DataRowView).Row[0];
+            drinks.DeleteQuery(id);
             SecondTable.ItemsSource = drinks.GetData();
         }
     }
