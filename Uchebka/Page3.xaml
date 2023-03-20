@@ -9,10 +9,11 @@
       Title="Page3">
 
     <StackPanel>
-        <DataGrid x:Name="SecondTable" Grid.Row="1" Grid.ColumnSpan="3"/>
+        <DataGrid x:Name="SecondTable" Grid.Row="1" Grid.ColumnSpan="3" SelectionChanged="SecondTable_SelectionChanged"/>
         <TextBlock Text="Напиток" HorizontalAlignment="Center"/>
         <TextBox  x:Name="DrinkNameBox" HorizontalAlignment="Center"/>
         <Button Content="Сохранить запись" Click="Button_Click" />
         <Button Content="Удалить запись" Click="Button_Click_1"/>
+        <Button Content="Изменить запись" Click="Button_Click_2"/>
     </StackPanel>
 </Page>

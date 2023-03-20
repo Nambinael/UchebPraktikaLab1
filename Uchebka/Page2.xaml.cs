@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -28,7 +30,7 @@ namespace Uchebka
         public Page2()
         {
             InitializeComponent();
-            
+
             FirstTable.ItemsSource = chelovek.GetData();
             FavDrinkIdBox.ItemsSource = drinks.GetData();
             AgeGroupIdBox.ItemsSource = age.GetData();
@@ -51,6 +53,27 @@ namespace Uchebka
             int id = (int)(FirstTable.SelectedValue as DataRowView).Row[0];
             chelovek.DeleteQuery(id);
             FirstTable.ItemsSource = chelovek.GetData();
+        }
+
+        private void FirstTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (FirstTable.SelectedItem != null)
+            {
+                var item = FirstTable.SelectedItem as DataRowView;
+                NaaameBox.Text = (string)item.Row[1];
+                FavDrinkIdBox.SelectedValue = (int)item.Row[2];
+                AgeGroupIdBox.SelectedValue = (int)item.Row[3];
+            }
+        }
+
+        private void ChangeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (FirstTable.SelectedValue != null)
+            {
+                var item = FirstTable.SelectedItem as DataRowView;
+                chelovek.UpdateQuery(NaaameBox.Text, (int)FavDrinkIdBox.SelectedValue,(int)AgeGroupIdBox.SelectedValue, (int)item.Row[0]);
+                FirstTable.ItemsSource = chelovek.GetData();
+            }
         }
     }
 }

@@ -41,5 +41,25 @@ namespace Uchebka
             drinks.DeleteQuery(id);
             SecondTable.ItemsSource = drinks.GetData();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (SecondTable.SelectedValue != null)
+            {
+                var item = SecondTable.SelectedItem as DataRowView;
+                drinks.UpdateQuery(DrinkNameBox.Text,(int)item.Row[0]);
+                SecondTable.ItemsSource = drinks.GetData();
+
+            }
+        }
+
+        private void SecondTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (SecondTable.SelectedItem != null)
+            {
+                var item = SecondTable.SelectedItem as DataRowView;
+                DrinkNameBox.Text = (string)item.Row[1];
+            }
+        }
     }
 }

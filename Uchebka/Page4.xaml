@@ -9,10 +9,11 @@
       Title="Page4">
 
     <StackPanel>
-        <DataGrid x:Name="ThirdTable" Grid.Row="1" Grid.ColumnSpan="3"/>
+        <DataGrid x:Name="ThirdTable" Grid.Row="1" Grid.ColumnSpan="3" SelectionChanged="ThirdTable_SelectionChanged"/>
         <TextBlock Text="Возрастная группа" HorizontalAlignment="Center"/>
         <TextBox  x:Name="AgeGroupBox" HorizontalAlignment="Center"/>
         <Button Content="Сохранить запись" Click="Button_Click" />
         <Button Content="Удалить запись" Click="Button_Click_1"/>
+        <Button Content="Изменить запись" Click="Button_Click_2"/>
     </StackPanel>
 </Page>

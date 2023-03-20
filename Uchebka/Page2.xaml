@@ -9,7 +9,7 @@
       Title="Page2">
 
     <StackPanel>
-        <DataGrid x:Name="FirstTable" Grid.Row="1" Grid.ColumnSpan="3" />
+        <DataGrid x:Name="FirstTable" Grid.Row="1" Grid.ColumnSpan="3" SelectionChanged="FirstTable_SelectionChanged" />
         <TextBlock Text="Имя" HorizontalAlignment="Center"/>
         <TextBox  x:Name="NaaameBox" HorizontalAlignment="Center"/>
         <TextBlock Text="Id напитка" HorizontalAlignment="Center"/>
@@ -18,5 +18,6 @@
         <ComboBox x:Name="AgeGroupIdBox" HorizontalAlignment="Center"/>
         <Button Content="Соранить запись" Click="Button_Click"/>
         <Button Content="Удалить запись" Click="Button_Click_1"/>
+        <Button x:Name="ChangeBtn" Content="Изменить запись" Click="ChangeBtn_Click" />
     </StackPanel>
 </Page>

@@ -41,5 +41,25 @@ namespace Uchebka
             age.DeleteQuery(id);
             ThirdTable.ItemsSource = age.GetData();
         }
+
+        private void ThirdTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ThirdTable.SelectedItem != null)
+            {
+                var item = ThirdTable.SelectedItem as DataRowView;
+                AgeGroupBox.Text = (string)item.Row[1];
+            }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (ThirdTable.SelectedValue != null)
+            {
+                var item = ThirdTable.SelectedItem as DataRowView;
+                age.UpdateQuery(AgeGroupBox.Text, (int)item.Row[0]);
+                ThirdTable.ItemsSource = age.GetData();
+
+            }
+        }
     }
 }
